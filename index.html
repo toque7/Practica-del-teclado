@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de Mecanografía</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .activity {
+            margin-bottom: 20px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 16px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Práctica de Mecanografía</h1>
+        
+        <div class="activity">
+            <p><strong>Ejemplo 1:</strong> Escribe el siguiente texto:</p>
+            <p>"La casa es bonita."</p>
+            <input type="text" id="input1">
+            <button onclick="checkAnswer(1, 'La casa es bonita.')">Verificar</button>
+            <p id="result1"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 2:</strong> Escribe el siguiente texto con signos de puntuación:</p>
+            <p>"¿Qué hora es?"</p>
+            <input type="text" id="input2">
+            <button onclick="checkAnswer(2, '¿Qué hora es?')">Verificar</button>
+            <p id="result2"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 3:</strong> Escribe la siguiente secuencia de números y signos:</p>
+            <p>"12345, 67890!"</p>
+            <input type="text" id="input3">
+            <button onclick="checkAnswer(3, '12345, 67890!')">Verificar</button>
+            <p id="result3"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 4:</strong> Escribe el siguiente texto con paréntesis:</p>
+            <p>"(El perro) juega."</p>
+            <input type="text" id="input4">
+            <button onclick="checkAnswer(4, '(El perro) juega.')">Verificar</button>
+            <p id="result4"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 5:</strong> Escribe el siguiente texto con puntos y dos puntos:</p>
+            <p>"La hora es: 3:15 PM."</p>
+            <input type="text" id="input5">
+            <button onclick="checkAnswer(5, 'La hora es: 3:15 PM.')">Verificar</button>
+            <p id="result5"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 6:</strong> Usa la tecla de tabulador para crear espacios:</p>
+            <p>"Nombre:\tJuan"</p>
+            <input type="text" id="input6">
+            <button onclick="checkAnswer(6, 'Nombre:\tJuan')">Verificar</button>
+            <p id="result6"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 7:</strong> Escribe el siguiente texto utilizando comillas:</p>
+            <p>"Dijo: 'Hola a todos.'"</p>
+            <input type="text" id="input7">
+            <button onclick="checkAnswer(7, "Dijo: 'Hola a todos.'")">Verificar</button>
+            <p id="result7"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 8:</strong> Escribe el siguiente texto utilizando el símbolo de porcentaje:</p>
+            <p>"El descuento es del 20%."</p>
+            <input type="text" id="input8">
+            <button onclick="checkAnswer(8, 'El descuento es del 20%.')">Verificar</button>
+            <p id="result8"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 9:</strong> Escribe el siguiente texto utilizando una dirección de correo electrónico:</p>
+            <p>"Contacto: correo@example.com"</p>
+            <input type="text" id="input9">
+            <button onclick="checkAnswer(9, 'Contacto: correo@example.com')">Verificar</button>
+            <p id="result9"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 10:</strong> Escribe el siguiente texto con un símbolo de suma:</p>
+            <p>"2 + 2 = 4"</p>
+            <input type="text" id="input10">
+            <button onclick="checkAnswer(10, '2 + 2 = 4')">Verificar</button>
+            <p id="result10"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 11:</strong> Escribe el siguiente texto utilizando comillas dobles:</p>
+            <p>"El profesor dijo: \"Estudien mucho.\""</p>
+            <input type="text" id="input11">
+            <button onclick="checkAnswer(11, 'El profesor dijo: \"Estudien mucho.\"')">Verificar</button>
+            <p id="result11"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 12:</strong> Escribe el siguiente texto utilizando una barra invertida:</p>
+            <p>"C:\\Usuarios\\Juan"</p>
+            <input type="text" id="input12">
+            <button onclick="checkAnswer(12, 'C:\\Usuarios\\Juan')">Verificar</button>
+            <p id="result12"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 13:</strong> Escribe el siguiente texto utilizando una combinación de caracteres especiales:</p>
+            <p>"¡Hola, mundo! #Programación"</p>
+            <input type="text" id="input13">
+            <button onclick="checkAnswer(13, '¡Hola, mundo! #Programación')">Verificar</button>
+            <p id="result13"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 14:</strong> Escribe el siguiente texto con una dirección web:</p>
+            <p>"Visita nuestro sitio en https://www.example.com"</p>
+            <input type="text" id="input14">
+            <button onclick="checkAnswer(14, 'Visita nuestro sitio en https://www.example.com')">Verificar</button>
+            <p id="result14"></p>
+        </div>
+
+        <div class="activity">
+            <p><strong>Ejemplo 15:</strong> Escribe el siguiente texto utilizando puntos y comas:</p>
+            <p>"El perro, el gato, y el ratón; todos son amigos."</p>
+            <input type="text" id="input15">
+            <button onclick="checkAnswer(15, 'El perro, el gato, y el ratón; todos son amigos.')">Verificar</button>
+            <p id="result15"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(activityNumber, correctText) {
+            const input = document.getElementById(`input${activityNumber}`).value;
+            const result = document.getElementById(`result${activityNumber}`);
+            if (input === correctText) {
+                result.textContent = "Correcto";
+                result.className = "correct";
+            } else {
+                result.textContent = "Incorrecto";
+                result.className = "incorrect";
+            }
+        }
+    </script>
+</body>
+</html>
